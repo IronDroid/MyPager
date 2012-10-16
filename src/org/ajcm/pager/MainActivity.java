@@ -1,20 +1,19 @@
 package org.ajcm.pager;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.os.Parcelable;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
+import com.viewpagerindicator.TabPageIndicator;
 import com.viewpagerindicator.UnderlinePageIndicator;
 
-public class MainActivity extends Activity {
+public class MainActivity extends FragmentActivity {
 
-    private static final String[] CONTENT = new String[]{"Recent", "Artists", "Albums"};
+    private static final String[] CONTENT = new String[]{"Recent", "Artists", "Albums", "Artists", "Albums"};
+    private UnderlinePageIndicator indicator;
 
     /**
      * Called when the activity is first created.
@@ -27,10 +26,23 @@ public class MainActivity extends Activity {
         ViewPager pager = (ViewPager) findViewById(R.id.my_pager);
         pager.setAdapter(adapter);
         pager.setCurrentItem(1);
-        UnderlinePageIndicator indicator = (UnderlinePageIndicator) findViewById(R.id.indicator);
+        indicator = (UnderlinePageIndicator) findViewById(R.id.indicator);
         indicator.setViewPager(pager);
         indicator.setFades(false);
-        indicator.setCurrentItem(1);
+        TabPageIndicator tabIndicator = (TabPageIndicator) findViewById(R.id.tab_indicator);
+        tabIndicator.setViewPager(pager);
+        tabIndicator.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+
+            public void onPageScrolled(int i, float f, int i1) {
+            }
+
+            public void onPageSelected(int i) {
+                indicator.setCurrentItem(i);
+            }
+
+            public void onPageScrollStateChanged(int i) {
+            }
+        });
     }
 
     private class MyPagerAdapter extends PagerAdapter {
@@ -40,7 +52,7 @@ public class MainActivity extends Activity {
 
         @Override
         public int getCount() {
-            return 3;
+            return 5;
         }
 
         @Override
@@ -55,6 +67,12 @@ public class MainActivity extends Activity {
                     res = R.layout.main_2;
                     break;
                 case 2:
+                    res = R.layout.main_3;
+                    break;
+                case 3:
+                    res = R.layout.main_2;
+                    break;
+                case 4:
                     res = R.layout.main_3;
                     break;
             }

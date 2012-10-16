@@ -12,6 +12,7 @@ C:\Users\Jhon_Li\Desktop\Documents\NetBeansProjects\MyPager\bin\classes\com\view
 C:\Users\Jhon_Li\Desktop\Documents\NetBeansProjects\MyPager\bin\classes\com\viewpagerindicator\R$styleable.class \
 C:\Users\Jhon_Li\Desktop\Documents\NetBeansProjects\MyPager\bin\classes\com\viewpagerindicator\R.class \
 C:\Users\Jhon_Li\Desktop\Documents\NetBeansProjects\MyPager\bin\classes\org\ajcm\pager\BuildConfig.class \
+C:\Users\Jhon_Li\Desktop\Documents\NetBeansProjects\MyPager\bin\classes\org\ajcm\pager\MainActivity$1.class \
 C:\Users\Jhon_Li\Desktop\Documents\NetBeansProjects\MyPager\bin\classes\org\ajcm\pager\MainActivity$MyPagerAdapter.class \
 C:\Users\Jhon_Li\Desktop\Documents\NetBeansProjects\MyPager\bin\classes\org\ajcm\pager\MainActivity.class \
 C:\Users\Jhon_Li\Desktop\Documents\NetBeansProjects\MyPager\bin\classes\org\ajcm\pager\R$attr.class \
