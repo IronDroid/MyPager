@@ -7,6 +7,7 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
@@ -67,7 +68,12 @@ public class MainActivity extends Activity {
 
         @Override
         public boolean isViewFromObject(View view, Object o) {
-            return view == (View)o;
+            return view == (View) o;
+        }
+
+        @Override
+        public void destroyItem(ViewGroup container, int position, Object object) {
+            super.destroyItem(container, position, object);
         }
     }
 }
