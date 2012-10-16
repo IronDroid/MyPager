@@ -1,6 +1,9 @@
-# view res/layout/main.xml #generated:7
+# view res/layout/main.xml #generated:8
 -keep class android.support.v4.view.ViewPager { <init>(...); }
 
-# view AndroidManifest.xml #generated:7
+# view res/layout/main.xml #generated:13
+-keep class com.viewpagerindicator.UnderlinePageIndicator { <init>(...); }
+
+# view AndroidManifest.xml #generated:8
 -keep class org.ajcm.pager.MainActivity { <init>(...); }
 

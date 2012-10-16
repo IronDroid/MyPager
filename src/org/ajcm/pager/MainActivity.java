@@ -3,12 +3,14 @@ package org.ajcm.pager;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+import com.viewpagerindicator.UnderlinePageIndicator;
 
 public class MainActivity extends Activity {
 
@@ -20,15 +22,15 @@ public class MainActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        try {
-            setContentView(R.layout.main);
-            MyPagerAdapter adapter = new MyPagerAdapter();
-            ViewPager pager = (ViewPager) findViewById(R.id.my_pager);
-            pager.setAdapter(adapter);
-            pager.setCurrentItem(1);
-        } catch (Exception e) {
-            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
-        }
+        setContentView(R.layout.main);
+        MyPagerAdapter adapter = new MyPagerAdapter();
+        ViewPager pager = (ViewPager) findViewById(R.id.my_pager);
+        pager.setAdapter(adapter);
+        pager.setCurrentItem(1);
+        UnderlinePageIndicator indicator = (UnderlinePageIndicator) findViewById(R.id.indicator);
+        indicator.setViewPager(pager);
+        indicator.setFades(false);
+        indicator.setCurrentItem(1);
     }
 
     private class MyPagerAdapter extends PagerAdapter {
@@ -72,8 +74,13 @@ public class MainActivity extends Activity {
         }
 
         @Override
-        public void destroyItem(ViewGroup container, int position, Object object) {
-            super.destroyItem(container, position, object);
+        public void destroyItem(View container, int position, Object object) {
+            ((ViewPager) container).removeView((View) object);
+        }
+
+        @Override
+        public int getItemPosition(Object object) {
+            return super.getItemPosition(object);
         }
     }
 }
